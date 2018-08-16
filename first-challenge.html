@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array Challenge</title>
+</head>
+
+<body>
+    <script>
+        // Create an array of 3 objects, all of which containing a name property and an
+        // age property.Write a script that will generate a random number from 0 - 2,
+        // call the object with that index, and print “[name] is[age].”
+
+
+        var Array = [
+            {
+                name: "Joe",
+                age: 25
+            },
+            {
+                name: "Mike",
+                age: 20
+            },
+            {
+                name: "Bob",
+                age: 29
+            }
+        ];
+
+        var randomNumber = Math.floor(Math.random() * 3);
+        console.log(`${Array[randomNumber].name} is ${Array[randomNumber].age}`);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //         Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
+        // Note: Midnight is 12:00:00AM on a 12-hour clock, and 00:00:00 on a 24-hour clock. Noon is 12:00:00PM on a 12-hour clock, and 12:00:00 on a 24-hour clock.
+        // Input Format
+        // A single string containing a time in 12-hour clock format (i.e.: hh:mm:ssAM or hh:mm:ssPM).
+        // Output Format
+        // Convert and print the given time in 24-hour format.
+        // Sample Input
+        // 07:05:45PM
+        // Sample Output
+        // 19:05:45
+
+        // Do error messages for incorrect inputs
+
+        function militaryTime(time) {
+
+            time = time.toUpperCase();
+            var splitTime = time.split(':');
+            var hour = parseInt(splitTime[0]);
+
+            if(!time.includes('PM') && !time.includes('AM')) {
+                alert('You must input AM or PM');
+            }
+
+            if (time.includes('PM') && hour < 12) {
+                splitTime[0] = hour + 12;
+                time = splitTime.join(':').replace('PM', '');
+                console.log(time);
+            } else if (time.includes('PM')) {
+                console.log(time.replace('PM', ''));
+            }
+
+            if (time.includes('AM') && hour === 12) {
+                splitTime[0] = 0;
+                time = splitTime.join(':').replace('AM', '');
+                console.log(time);
+            } else if (time.includes('AM')) {
+                console.log(time.replace('AM', ''));
+            }
+
+        };
+        militaryTime("9:25:45am");
+
+
+
+    </script>
+</body>
+
+</html>

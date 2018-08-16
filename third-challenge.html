@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Third Challenge</title>
+</head>
+
+<body>
+    <script>
+
+        var Object = function (gender, firstName, lastName, street, city, state, zip) {
+            this.gender = gender;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.street = street;
+            this.city = city;
+            this.zip = zip
+            this.address = `${street} ${city} ${state} ${zip}`;
+            this.products = [];
+            this.total = 0;
+        };
+        Object.prototype.addProducts = function (quantity, name, desc, price) {
+            var product = {
+                quantity: quantity,
+                name: name,
+                desc: desc,
+                price: price
+            }
+            this.products.push(product)
+        }
+    
+        var customerOne = new Object('Mr', 'Seyfat', 'Khamidov', '1111 Hello Dr', 'Charlotte', 'NC', 28134);
+        var customerTwo = new Object('Ms', 'Sandy', 'Johnson', '1234 Example Rd', 'Charlotte', 'NC', 28210);
+
+        // ADDING ORDERS WITH QUANTITY, NAME, DESCRIPTION, AND PRICE
+        customerOne.addProducts(5, 'Socks', 'These socks will hug your feet in a way that will make you feel like your grandmother knitted them herself', 6);
+        console.log('\n');
+
+        customerOne.addProducts(3, 'Shirts', 'Helping people feel cool in India’s intense heat made the fabric famous – so imagine how good our Madras Shirt will feel where you live. But we weren’t content to simply recreate the fabric. Although ours is woven in India like the original, we’ve improved it – with single-ply yarns that are ring­spun for strength and improved comfort', 25);
+
+        customerTwo.addProducts(1, 'Toddler Girls Jacquard Twirl Dress', 'This gathered waist twirl dress is perfect for dress-up days and special occasions, and she’ll absolutely adore the pretty prints & patterns', 25);
+
+        customerTwo.addProducts(1, 'ClassMate Medium Backpack - Print', 'ClassMate® Medium Backpack’s kid-friendly features go beyond carrying capacity. For one thing, it’s made from durable, 600-denier polyester with a water-repellent finish. The no-tip base is 1200-denier pack cloth and the padded shoulder straps are securely stitched, so this bookbag can take all the dropping, dragging and tugging their school day has in store. In fact, we recommend making sure this is the pack they really want — it’s going to be with them a long time!', 39);
+
+        customerTwo.addProducts(1, 'School Uniform Women\'s Scallop Ballet Flats', 'Feminine, traditional, and versatile, with a touch of scalloped detailing to set them apart from your typical ballets. Foam footbeds cushion you every step of the way, making them perfect for running errands in style, dressing up your jeans and tees, or walking around your office', 48);
+
+        //DISPLAYS LETTER FOR EACH CUSTOMER
+
+        Object.prototype.letter = function () {
+
+            console.log(`Dear ${this.gender} ${this.lastName}`);
+
+            console.log(`Thank you for your order! The following items will be sent out to you today and you should expect them in to arrive in 5 days. Your order will be sent to: ${this.address}.`);
+
+
+            console.log('Your Order: ')
+            
+            for (var i = 0; i < this.products.length; i++) {    // FOR LOOP TO DISPLAY THWE ORDER OF THE CUSTOMER
+                console.log(`${this.products[i].quantity} ${this.products[i].name}. ${this.products[i].desc}.$${this.products[i].price} each`);
+            }
+
+            for (var i = 0; i < this.products.length; i++) {    // FOR LOOP TO DISPLAY THE TOTAL ORDER PRICE
+                this.total += this.products[i].quantity * this.products[i].price;
+            }
+            console.log(`Your total is $${this.total}`)
+
+            console.log('If you have any concerns, please contact customer service.');
+
+            console.log('Sincerely,' + '\n' + 'Joe Business-Guy' + '\n');
+            console.log('\n');
+        };
+
+        customerOne.letter();
+        customerTwo.letter();
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
