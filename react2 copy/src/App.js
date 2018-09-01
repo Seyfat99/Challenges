@@ -27,7 +27,6 @@ class App extends Component {
 
     this.setState({
       number: standard,
-      showHighScore: true,
       message: '',
       showInput: false,        // Displays submit form
       counter: 1,
@@ -41,7 +40,6 @@ class App extends Component {
 
     this.setState({
       number: expert,
-      showHighScore: true,
       message: '',
       showInput: false, // Displays submit form
       counter: 1,
@@ -94,7 +92,7 @@ class App extends Component {
 
   highScoreButton = () => {  // HighScore button 
     this.setState({
-      showHighScore: false
+      showHighScore: !this.state.showHighScore
     })
   }
 
