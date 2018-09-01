@@ -1,0 +1,68 @@
+body {
+  margin: 0
+}
+header {
+  margin: 20px auto;
+}
+
+.container {
+  text-align: center;
+}
+
+.container h1 {
+  text-transform: uppercase;
+  margin: 0 auto;
+  width: 500px;
+  border-bottom: 1px solid black;
+  font-size: 1.8rem;
+}
+.button-container {
+  width: 300px;
+  margin: 20px auto 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+button {
+  padding: 5px;
+  width: 90px;
+  box-sizing: border-box;
+  outline: none;
+  cursor: pointer;
+  border-bottom: 1px solid black;
+}
+
+.inputField {
+  width: 100px;
+  height: 20px;
+  display: block;
+  margin: 0 auto 10px;
+  border-bottom: 1px solid black;
+}
+.inputButton {
+  padding: 5px;
+  width: 90px;
+  box-sizing: border-box;
+  outline: none;
+  cursor: pointer;
+  border-bottom: 1px solid black;
+}
+p {
+  margin: 0;
+  padding: 5px;
+}
+form {
+  margin-bottom: 20px;
+}
+a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  border: 1px solid lightgray;
+  border-bottom: 1px solid black;
+  padding: 5px;
+  width: 90px;
+  box-sizing: border-box;
+  font-size: 11px;
+  margin: 10px auto;
+}
