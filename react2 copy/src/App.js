@@ -12,7 +12,6 @@ class App extends Component {
     showInput: true,
     showHighScore: true,
     counter: 1,
-    highScore: 1,
     highScoreMessage: '',
     highscores: {
       standard: [],
@@ -30,7 +29,8 @@ class App extends Component {
       message: '',
       showInput: false,        // Displays submit form
       counter: 1,
-      level: "standard"
+      level: "standard",
+      showHighScore: true
     }, () => console.log(this.state.number))
   }
 
@@ -43,7 +43,8 @@ class App extends Component {
       message: '',
       showInput: false, // Displays submit form
       counter: 1,
-      level: "expert"
+      level: "expert",
+      showHighScore: true
     }, () => console.log(this.state.number))
   }
 
@@ -63,12 +64,11 @@ class App extends Component {
 
     if(number === Number(guess)) {                             
       highScores.push(this.state.counter)
+      let min = Math.min(...highScores) // Finding the lowest highscore
 
       this.setState({
         message: `You're Right! It took ${this.state.counter} attempts`,
-        highScore: this.state.counter,
       }, () => {
-          let min = Math.min(...highScores) // Finding the lowest highscore
           this.setState({
           highScoreMessage: (this.state.level === "standard") ? `Standard Highscore: ${min}` : `Expert Highscore: ${min}`
         })
@@ -104,7 +104,6 @@ class App extends Component {
       showInput: true,
       showHighScore: true,
       counter: 1,
-      highScore: 1,
       highScoreMessage: '',
       highscores: {
       standard: [],
@@ -121,8 +120,8 @@ class App extends Component {
           <h1 className="App-title">Start Game</h1>
         </header>
 
-        <p>Guessing Game: Standard or Expert?</p>
-        <p>Click Either To Start and Click Again To Play Again!</p>
+        <p className="paraGraph">Guessing Game: Standard or Expert?</p>
+        <p className="paraGraph">Click Either To Start and Click Again To Play Again!</p>
 
         <Button
         clickedStand = {this.standardButtonHandler}
